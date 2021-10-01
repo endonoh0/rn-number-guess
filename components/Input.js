@@ -1,13 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 
-import Colors from '../constants/colors';
 
 const Input = props => {
 	return (
 			<TextInput {...props} style={{...styles.input, ...props.style}} />
 	)
-
 }
 
 const styles = StyleSheet.create({
