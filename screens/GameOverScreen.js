@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Button, Image } from 'react-native';
+import { View, StyleSheet, Button, Image, Text } from 'react-native';
 
+import Colors from '../constants/colors';
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
 
@@ -12,14 +13,20 @@ const GameOverScreen = props => {
 			<View style={styles.imageContainer}>
 				<Image
 					fadeDuration={1000}
-					source={{uri: 'https://http.cat/503'}}
-					// source={require('../assets/success.png')}
+					// source={{uri: 'https://http.cat/503'}}
+					source={require('../assets/success.png')}
 					style={styles.image}
 					resizeMode="cover"
 				/>
 			</View>
-			<BodyText>Number of rounds: {roundsNumber}</BodyText>
-			<BodyText>Number was: {userNumber}</BodyText>
+			<View style={styles.resultContainer}>
+				<BodyText style={styles.resultText}>
+					Your phone needed {' '}
+					<Text style={styles.highlight}>{roundsNumber}</Text> {' '}
+					to guess the number {' '}
+					<Text style={styles.highlight}>{userNumber}</Text>.
+				</BodyText>
+			</View>
 			<Button title="NEW GAME" onPress={onRestart}></Button>
 		</View>
 	)
@@ -43,6 +50,18 @@ const styles = StyleSheet.create({
 	image: {
 		width: '100%',
 		height: '100%'
+	},
+	resultContainer: {
+		marginHorizontal: 20,
+		marginVertical: 15
+	},
+	resultText: {
+		textAlign: 'center',
+		fontSize: 20
+	},
+	highlight: {
+		color: Colors.primary,
+		fontFamily: 'open-sans-bold',
 	}
 });
 
