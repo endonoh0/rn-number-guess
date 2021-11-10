@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
 	},
 	listContainer: {
 		flex: 1,
-		width: '60%'
+		width: Dimensions.get('window').width > 350 ? '60%' : '80%'
+
 	},
 	list: {
 		flexGrow: 1,
